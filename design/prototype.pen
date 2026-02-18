@@ -2178,65 +2178,6 @@
                         },
                         {
                           "type": "frame",
-                          "id": "Qhqi5",
-                          "name": "historyBtn",
-                          "width": "fill_container",
-                          "height": 75,
-                          "fill": "#FFFFFF",
-                          "cornerRadius": 10,
-                          "stroke": {
-                            "align": "inside",
-                            "thickness": 1,
-                            "fill": "#E5E7EB"
-                          },
-                          "layout": "vertical",
-                          "gap": 6,
-                          "padding": [
-                            10,
-                            8
-                          ],
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "N0kAm",
-                              "name": "historyIcon",
-                              "width": 32,
-                              "height": 32,
-                              "fill": "#F3F4F6",
-                              "cornerRadius": 8,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon_font",
-                                  "id": "sEx6u",
-                                  "name": "historyIconImg",
-                                  "width": 16,
-                                  "height": 16,
-                                  "iconFontName": "bar-chart",
-                                  "iconFontFamily": "lucide",
-                                  "fill": "#374151"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "rGJ99",
-                              "name": "historyLabel",
-                              "fill": "#374151",
-                              "content": "Relatórios",
-                              "lineHeight": 1.2,
-                              "textAlign": "center",
-                              "fontFamily": "Manrope",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
                           "id": "m8nvf",
                           "name": "moreBtn",
                           "width": "fill_container",
