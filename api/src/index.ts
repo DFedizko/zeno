@@ -9,6 +9,8 @@ import {
 } from "fastify-type-provider-zod";
 import ScalarApiReference from "@scalar/fastify-api-reference";
 import { routes } from "./routes";
+import { errorHandler } from "./plugins/errorHandler";
+import { jwtPlugin } from "./plugins/jwtPlugin";
 
 const PORT = 3333;
 
@@ -26,8 +28,8 @@ app.register(fastifyCors, {
 app.register(fastifySwagger, {
 	openapi: {
 		info: {
-			title: "Financial Management API Reference",
-			description: "API for financial management.",
+			title: "Zeno - Financial Management API",
+			description: "API Reference for Zeno - Financial Management.",
 			version: "1.0.0",
 		},
 	},
@@ -40,6 +42,10 @@ app.register(ScalarApiReference, {
 		theme: "bluePlanet",
 	},
 });
+
+app.register(jwtPlugin);
+
+app.register(errorHandler);
 
 app.register(routes, { prefix: "/api" });
 

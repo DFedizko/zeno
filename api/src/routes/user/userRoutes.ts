@@ -1,51 +1,85 @@
-import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import type { FastifyTypedInstance } from "@/types/FastifyTypedInstance";
+import { getUsers } from "./getUsers";
+import { getUserById } from "./getUserById";
+import { postCreateUser } from "./postCreateUser";
+import { patchUpdateUser } from "./patchUpdateUser";
+import { deleteUser } from "./deleteUser";
+import { userSchema } from "./userSchema";
 
 export const userRoutes = async (app: FastifyTypedInstance) => {
-    app.get("/users", {
-        schema: {
-            tags: ["users"],
-            description: "List all users",
-            response: {
-                200: z.array(
-                    z.object({
-                        id: z.string(),
-                        name: z.string(),
-                        email: z.string(),
-                    })
-                )
-            }
-        }},
-        async (_, reply) => {
-
-            const users = await ap
-
-            return reply.status(200).send(users);
-        }
-    );
-    app.post("/users", {
-        schema: {
-            tags: ["users"],
-            description: "Create a new user",
-            body: z.object({
-                name: z.string(),
-                email: z.email(),
-            }),
-            response: {
-                201: z.null().describe("User created."),
-            }
-        }},
-        async (request, reply) => {
-            const { name, email } = request.body;
-            
-            users.push({
-                id: randomUUID(),
-                email,
-                name,
-            });
-
-            return reply.status(201).send(null);
-        }
-    );
-}
+	app.get(
+		"/user",
+		{
+			schema: {
+				tags: ["user"],
+				description: "List all users",
+				headers: z.object({
+					"Bearer Authorization": z.string().describe("JWT token"),
+				}),
+				response: {
+					200: z.array(userSchema.output),
+				},
+			},
+			onRequest: [app.jwtAuth],
+		},
+		getUsers,
+	);
+	app.get(
+		"/user/:id",
+		{
+			schema: {
+				tags: ["user"],
+				description: "Get a user by id",
+				params: userSchema.params,
+				response: {
+					200: userSchema.output,
+				},
+			},
+		},
+		getUserById,
+	);
+	app.patch(
+		"/user/:id",
+		{
+			schema: {
+				tags: ["user"],
+				description: "Update a user by id",
+				params: userSchema.params,
+				body: userSchema.patchInput,
+				response: {
+					200: userSchema.output,
+				},
+			},
+		},
+		patchUpdateUser,
+	);
+	app.post(
+		"/user",
+		{
+			schema: {
+				tags: ["user"],
+				description: "Create a new user",
+				body: userSchema.input,
+				response: {
+					201: userSchema.output,
+				},
+			},
+		},
+		postCreateUser,
+	);
+	app.delete(
+		"/user/:id",
+		{
+			schema: {
+				tags: ["user"],
+				description: "Delete a user by id",
+				params: userSchema.params,
+				response: {
+					204: z.undefined(),
+				},
+			},
+		},
+		deleteUser,
+	);
+};
