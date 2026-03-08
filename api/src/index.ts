@@ -11,8 +11,9 @@ import ScalarApiReference from "@scalar/fastify-api-reference";
 import { routes } from "./routes";
 import { errorHandler } from "./plugins/errorHandler";
 import { jwtPlugin } from "./plugins/jwtPlugin";
+import fastifyCookie from "@fastify/cookie";
 
-const PORT = 3333;
+const PORT = 3334;
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -22,7 +23,7 @@ app.setSerializerCompiler(serializerCompiler);
 app.register(fastifyCors, {
 	origin: true,
 	methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
-	// credentials: true,
+	credentials: true,
 });
 
 app.register(fastifySwagger, {
@@ -43,11 +44,19 @@ app.register(ScalarApiReference, {
 	},
 });
 
+app.register(fastifyCookie, {
+	secret: process.env.JWT_SECRET ?? "default-secret",
+});
+
 app.register(jwtPlugin);
 
 app.register(errorHandler);
 
 app.register(routes, { prefix: "/api" });
+
+app.get("/openapi.json", () => {
+	return app.swagger();
+});
 
 app.listen({ port: PORT, host: "0.0.0.0" }).then(() => {
 	console.log(`🔥 HTTP server running on http://localhost:${PORT}`);
