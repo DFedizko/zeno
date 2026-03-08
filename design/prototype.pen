@@ -5,7 +5,7 @@
       "type": "prompt",
       "id": "DjMsz",
       "x": 43,
-      "y": -701,
+      "y": -607,
       "model": "claude-4.5-sonnet",
       "width": 740,
       "height": 485,
@@ -15,7 +15,7 @@
       "type": "rectangle",
       "id": "iTNrs",
       "x": -2072,
-      "y": -378,
+      "y": -133,
       "fill": {
         "type": "image",
         "enabled": true,
@@ -3753,6 +3753,197 @@
                   "fontWeight": "normal"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "aCML2",
+          "name": "tokenSectionTitle",
+          "fill": "#111827",
+          "content": "Token Reference (Tailwind v4.1)",
+          "fontFamily": "Manrope",
+          "fontSize": 16,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "CedDZ",
+          "name": "Token Reference Card",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": 12,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "22ZGz",
+              "name": "colorRolesLabel",
+              "fill": "#111827",
+              "content": "Color roles",
+              "fontFamily": "Manrope",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "ztada",
+              "name": "colorRow",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TEUE5",
+                  "name": "swPrimary",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#111827",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "9ydXZ",
+                  "name": "swSecondary",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#6B7280",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "jDAKS",
+                  "name": "swTertiary",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#9CA3AF",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "Rzr8l",
+                  "name": "swAccent",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#3B82F6",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "U1R6f",
+                  "name": "swSuccess",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#10B981",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "llPKi",
+                  "name": "swWarning",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#F59E0B",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "xmB9i",
+                  "name": "swDanger",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#EF4444",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "bcPLk",
+                  "name": "swBorder",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#E5E7EB",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "WrqTc",
+                  "name": "swBg",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#F5F5F7",
+                  "cornerRadius": 6,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E5E7EB"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "xOJgL",
+                  "name": "swCard",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 6,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E5E7EB"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "8C6Yu",
+              "name": "colorVarsText",
+              "fill": "#6B7280",
+              "content": "primary · secondary · tertiary · accent · success · warning · danger · border · background · card",
+              "fontFamily": "Manrope",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "gxrjl",
+              "name": "typoLabel",
+              "fill": "#111827",
+              "content": "Typography",
+              "fontFamily": "Manrope",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "0aDV0",
+              "name": "typoLine1",
+              "fill": "#374151",
+              "content": "Font: Manrope | Display 36/700 · Title 16/600 · Subtitle 14/400 · Body 13–14/400 · Caption 11/400",
+              "fontFamily": "Manrope",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "OxSmI",
+              "name": "typoLine2",
+              "fill": "#374151",
+              "content": "Weights: 400, 500, 600, 700 | Scale: 10, 11, 12, 13, 14, 15, 16, 18, 28, 36",
+              "fontFamily": "Manrope",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "QvZm8",
+              "name": "hexLine",
+              "fill": "#6B7280",
+              "content": "#111827 #6B7280 #9CA3AF #3B82F6 #10B981 #F59E0B #EF4444 #E5E7EB #F5F5F7 #FFFFFF",
+              "fontFamily": "Manrope",
+              "fontSize": 11,
+              "fontWeight": "normal"
             }
           ]
         },
