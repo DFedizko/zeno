@@ -5,7 +5,7 @@ import type { ZodError } from "zod";
 export class ValidationError extends BaseError {
     constructor(
         override readonly message: string = "Validation error.",
-        public readonly issues: ZodError["issues"],
+        public readonly issues?: ZodError["issues"],
     ) {
         super(message, 400);
     }
