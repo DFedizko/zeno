@@ -6,27 +6,24 @@ import { postCreateUser } from "./postCreateUser";
 import { patchUpdateUser } from "./patchUpdateUser";
 import { deleteUser } from "./deleteUser";
 import { userSchema } from "./userSchema";
+import { ErrorResponseSchemas } from "@/shared/schemas/ErrorResponseSchemas";
 
 export const userRoutes = async (app: FastifyTypedInstance) => {
 	app.get(
-		"/user",
+		"",
 		{
 			schema: {
 				tags: ["user"],
 				description: "List all users",
-				headers: z.object({
-					"Bearer Authorization": z.string().describe("JWT token"),
-				}),
 				response: {
 					200: z.array(userSchema.output),
 				},
 			},
-			onRequest: [app.jwtAuth],
 		},
 		getUsers,
 	);
 	app.get(
-		"/user/:id",
+		"/:id",
 		{
 			schema: {
 				tags: ["user"],
@@ -34,13 +31,14 @@ export const userRoutes = async (app: FastifyTypedInstance) => {
 				params: userSchema.params,
 				response: {
 					200: userSchema.output,
+					404: ErrorResponseSchemas.notFound.describe("User not found."),
 				},
 			},
 		},
 		getUserById,
 	);
 	app.patch(
-		"/user/:id",
+		"/:id",
 		{
 			schema: {
 				tags: ["user"],
@@ -49,13 +47,15 @@ export const userRoutes = async (app: FastifyTypedInstance) => {
 				body: userSchema.patchInput,
 				response: {
 					200: userSchema.output,
+					400: ErrorResponseSchemas.validationError,
+					404: ErrorResponseSchemas.notFound.describe("User not found."),
 				},
 			},
 		},
 		patchUpdateUser,
 	);
 	app.post(
-		"/user",
+		"",
 		{
 			schema: {
 				tags: ["user"],
@@ -63,13 +63,15 @@ export const userRoutes = async (app: FastifyTypedInstance) => {
 				body: userSchema.input,
 				response: {
 					201: userSchema.output,
+					400: ErrorResponseSchemas.validationError,
+					409: ErrorResponseSchemas.conflict.describe("User already exists."),
 				},
 			},
 		},
 		postCreateUser,
 	);
 	app.delete(
-		"/user/:id",
+		"/:id",
 		{
 			schema: {
 				tags: ["user"],
@@ -77,6 +79,7 @@ export const userRoutes = async (app: FastifyTypedInstance) => {
 				params: userSchema.params,
 				response: {
 					204: z.undefined(),
+					404: ErrorResponseSchemas.notFound.describe("User not found."),
 				},
 			},
 		},

@@ -4,7 +4,7 @@ import { UserService } from "@/modules/user/application/services/UserService";
 import { UserRepository } from "@/modules/user/infrastructure/repositories/UserRepository";
 import type { UserParamsInput } from "./userSchema";
 
-export const getUserById = async (
+export const getUserById = (
 	request: FastifyRequest<{ Params: UserParamsInput }>,
 	reply: FastifyReply,
 ) => {

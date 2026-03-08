@@ -12,7 +12,10 @@ const user = z.object({
 const createUserInput = z.object({
 	email: z.email(),
 	name: z.string().optional(),
-	password: z.string().min(8, "Password must be at least 8 characters long").optional(),
+	password: z
+		.string()
+		.min(8, "Password must be at least 8 characters long")
+		.optional(),
 });
 
 export const userSchema = {
@@ -38,4 +41,6 @@ export type UserPatchInput = z.input<typeof userSchema.patchInput>;
 export type UserParamsInput = z.input<typeof userSchema.params>;
 
 export type UserOutput = z.output<typeof userSchema.output>;
-export type UserWithPasswordOutput = z.output<typeof userSchema.userWithPassword>;
+export type UserWithPasswordOutput = z.output<
+	typeof userSchema.userWithPassword
+>;
