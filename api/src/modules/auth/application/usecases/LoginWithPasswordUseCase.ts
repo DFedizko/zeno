@@ -1,6 +1,6 @@
 import type { IUserRepository } from "@/modules/user/infrastructure/repositories/IUserRepository";
-import type { ILoginWithPasswordUseCase } from "./ILoginWithPasswordUseCase";
-import type { LoginInput, LoginOutput } from "@/routes/auth/authSchema";
+import type { ILoginWithPasswordUseCase, LoginOutput } from "./ILoginWithPasswordUseCase";
+import type { LoginInput } from "@/routes/auth/authSchema";
 import { verifyPassword } from "@/shared/utils/verifyPassword";
 import { PasswordNotSetError } from "@/shared/errors/PasswordNotSetError";
 import { InvalidCredentialsError } from "@/shared/errors/InvalidCredentialsError";
@@ -25,6 +25,7 @@ export class LoginWithPasswordUseCase implements ILoginWithPasswordUseCase {
         return {
             id: user.id,
             email: user.email,
+			name: user.name,
         };
 	}
 }

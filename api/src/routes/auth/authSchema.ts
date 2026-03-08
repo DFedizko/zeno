@@ -1,3 +1,4 @@
+import { defaultResponseSchema } from "@/shared/schemas/ErrorResponseSchemas";
 import { z } from "zod";
 
 const loginInput = z.object({
@@ -7,15 +8,7 @@ const loginInput = z.object({
 
 export const authSchema = {
 	loginInput,
-    loginOutput: z.object({
-        id: z.string(),
-        email: z.string(),
-    }),
-    loginResponse: z.object({
-        accessToken: z.string(),
-    }),
+	loginOutput: defaultResponseSchema,
 };
 
 export type LoginInput = z.input<typeof authSchema.loginInput>;
-
-export type LoginOutput = z.output<typeof authSchema.loginOutput>;
