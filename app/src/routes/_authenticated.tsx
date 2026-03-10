@@ -4,14 +4,15 @@ import {
 	createFileRoute,
 	redirect,
 	isRedirect,
+	Outlet,
 } from "@tanstack/react-router";
+import { Sidebar } from "@/components/organisms/Sidebar";
+import { Header } from "@/components/organisms/Header";
 
 export const Route = createFileRoute("/_authenticated")({
 	beforeLoad: async ({ location }) => {
 		try {
 			const user = await getApiAuthMe({ client: apiClient });
-
-			// use Zustand to save user data to access in all pages.
 
 			if (!user) {
 				throw redirect({
@@ -28,4 +29,22 @@ export const Route = createFileRoute("/_authenticated")({
 			});
 		}
 	},
+	component: AuthenticatedLayout,
 });
+
+function AuthenticatedLayout() {
+	const { user } = Route.useRouteContext();
+
+	return (
+		<div className="flex h-screen bg-background">
+			<Sidebar />
+			<div className="flex flex-col flex-1 gap-6 p-6 overflow-auto">
+				<Header
+					userName={user?.name ?? "Usuário"}
+					userEmail={user?.email ?? ""}
+				/>
+				<Outlet />
+			</div>
+		</div>
+	);
+}
