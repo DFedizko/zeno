@@ -11,7 +11,11 @@ describe("User", () => {
 		});
 
 		it("creates a user with email, name and password", () => {
-			const user = User.create("test@example.com", "John Doe", "secret123");
+			const user = User.create(
+				"test@example.com",
+				"John Doe",
+				"secret123",
+			);
 			expect(user.email).toBe("test@example.com");
 			expect(user.name).toBe("John Doe");
 			expect(user.password).toBe("secret123");

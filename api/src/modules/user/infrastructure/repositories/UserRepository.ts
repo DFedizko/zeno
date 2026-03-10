@@ -30,11 +30,11 @@ export class UserRepository implements IUserRepository {
 		const userWithPassword = await prisma.user.findUnique({
 			where: { email },
 		});
-		
+
 		if (!userWithPassword) {
 			throw new UserNotFound("User not found with this email.");
 		}
-		
+
 		if (!userWithPassword.passwordHash) {
 			throw new UserNotFound("User has no password.");
 		}
@@ -83,7 +83,9 @@ export class UserRepository implements IUserRepository {
 		if (input.email && input.email !== existing.email) {
 			const emailTaken = await this.userExistsByEmail(input.email);
 			if (emailTaken) {
-				throw new UserAlreadyExists("User already exists with this email.");
+				throw new UserAlreadyExists(
+					"User already exists with this email.",
+				);
 			}
 		}
 

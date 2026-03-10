@@ -31,7 +31,9 @@ export const userRoutes = async (app: FastifyTypedInstance) => {
 				params: userSchema.params,
 				response: {
 					200: userSchema.output,
-					404: ErrorResponseSchemas.notFound.describe("User not found."),
+					404: ErrorResponseSchemas.notFound.describe(
+						"User not found.",
+					),
 				},
 			},
 		},
@@ -48,7 +50,9 @@ export const userRoutes = async (app: FastifyTypedInstance) => {
 				response: {
 					200: userSchema.output,
 					400: ErrorResponseSchemas.validationError,
-					404: ErrorResponseSchemas.notFound.describe("User not found."),
+					404: ErrorResponseSchemas.notFound.describe(
+						"User not found.",
+					),
 				},
 			},
 		},
@@ -64,7 +68,9 @@ export const userRoutes = async (app: FastifyTypedInstance) => {
 				response: {
 					201: userSchema.output,
 					400: ErrorResponseSchemas.validationError,
-					409: ErrorResponseSchemas.conflict.describe("User already exists."),
+					409: ErrorResponseSchemas.conflict.describe(
+						"User already exists.",
+					),
 				},
 			},
 		},
@@ -79,7 +85,9 @@ export const userRoutes = async (app: FastifyTypedInstance) => {
 				params: userSchema.params,
 				response: {
 					204: z.undefined(),
-					404: ErrorResponseSchemas.notFound.describe("User not found."),
+					404: ErrorResponseSchemas.notFound.describe(
+						"User not found.",
+					),
 				},
 			},
 		},

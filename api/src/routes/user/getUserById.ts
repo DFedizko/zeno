@@ -8,8 +8,7 @@ export const getUserById = (
 	request: FastifyRequest<{ Params: UserParamsInput }>,
 	reply: FastifyReply,
 ) => {
-	return new UserController(new UserService(new UserRepository())).getUserById(
-		request,
-		reply,
-	);
+	return new UserController(
+		new UserService(new UserRepository()),
+	).getUserById(request, reply);
 };
