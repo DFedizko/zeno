@@ -10,7 +10,10 @@ export class AuthController {
 		private readonly loginWithPasswordUseCase?: LoginWithPasswordUseCase,
 	) {}
 
-	public async getUserAuthenticated(request: FastifyRequest, reply: FastifyReply) {
+	public async getUserAuthenticated(
+		request: FastifyRequest,
+		reply: FastifyReply,
+	) {
 		const user = request.user as UserOutput;
 		if (!user.id) {
 			throw new UnauthorizedError(
@@ -25,9 +28,8 @@ export class AuthController {
 		request: FastifyRequest<{ Body: LoginInput }>,
 		reply: FastifyReply,
 	) {
-		const { id, email, name } = await this.loginWithPasswordUseCase!.execute(
-			request.body,
-		);
+		const { id, email, name } =
+			await this.loginWithPasswordUseCase!.execute(request.body);
 
 		const jwtAccessToken = await request.server.jwt.sign({
 			id,
@@ -40,6 +42,7 @@ export class AuthController {
 			.setCookie("accessToken", jwtAccessToken, {
 				httpOnly: true,
 				sameSite: "strict",
+				path: "/",
 				maxAge: THIRTY_DAYS_IN_SECONDS,
 			})
 			.send({
