@@ -16,11 +16,10 @@ export default defineConfig({
 	},
 	plugins: [
 		tanstackRouter({
-			target: 'react',
+			target: "react",
 			autoCodeSplitting: true,
 			generatedRouteTree: "src/routeTree.gen.ts",
-			routesDirectory: './src/pages',
-			routeToken: 'layout',
+			routesDirectory: "src/routes",
 		}),
 		react({
 			babel: {
