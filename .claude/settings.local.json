@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bunx @tanstack/intent list)",
+      "WebFetch(domain:tanstack.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -sI \"https://tanstack.com/router/latest/docs/framework/react/routing/file-naming-conventions\")",
+      "Bash(curl -sIL \"https://tanstack.com/router/latest/docs/framework/react/routing/file-naming-conventions\")"
+    ]
+  }
+}
