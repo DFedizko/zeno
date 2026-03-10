@@ -1,21 +1,32 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RouterProvider } from "@tanstack/react-router";
-import { AuthProvider, useAuth } from "./auth";
-import { router } from "./router";
+import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			staleTime: Infinity,
+		},
+	},
+});
 
-const InnerApp = () => {
-	const auth = useAuth();
-	return <RouterProvider router={router} context={{ auth }} />;
+const router = createRouter({
+	routeTree,
+	context: { authentication: undefined! },
+});
+
+declare module "@tanstack/react-router" {
+	interface Register {
+		router: typeof router;
+	}
+}
+
+const App = () => {
+	return (
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router} />
+		</QueryClientProvider>
+	);
 };
-
-const App = () => (
-	<QueryClientProvider client={queryClient}>
-		<AuthProvider>
-			<InnerApp />
-		</AuthProvider>
-	</QueryClientProvider>
-);
 
 export default App;

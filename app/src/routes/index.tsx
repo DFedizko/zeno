@@ -18,9 +18,6 @@ function HomePage() {
 				<Link to="/dashboard" className="text-blue-600 underline">
 					Dashboard (protegido)
 				</Link>
-				<Link to="/about" className="text-blue-600 underline">
-					About
-				</Link>
 			</nav>
 		</div>
 	);

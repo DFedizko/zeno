@@ -8,12 +8,11 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './pages/__root'
-import { Route as LoginRouteImport } from './pages/login'
-import { Route as AuthenticatedRouteImport } from './pages/_authenticated'
-import { Route as IndexRouteImport } from './pages/index'
-import { Route as AboutIndexRouteImport } from './pages/about/index'
-import { Route as AuthenticatedDashboardRouteImport } from './pages/_authenticated/dashboard'
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -29,11 +28,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutIndexRoute = AboutIndexRouteImport.update({
-  id: '/about/',
-  path: '/about/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -44,13 +38,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/about/': typeof AboutIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/about': typeof AboutIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -58,27 +50,24 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/login': typeof LoginRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
-  '/about/': typeof AboutIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard' | '/about/'
+  fullPaths: '/' | '/login' | '/dashboard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard' | '/about'
+  to: '/' | '/login' | '/dashboard'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/login'
     | '/_authenticated/dashboard'
-    | '/about/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   LoginRoute: typeof LoginRoute
-  AboutIndexRoute: typeof AboutIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -102,13 +91,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about/': {
-      id: '/about/'
-      path: '/about'
-      fullPath: '/about/'
-      preLoaderRoute: typeof AboutIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/dashboard': {
@@ -137,7 +119,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   LoginRoute: LoginRoute,
-  AboutIndexRoute: AboutIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
