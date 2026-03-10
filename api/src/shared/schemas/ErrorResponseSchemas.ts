@@ -11,5 +11,7 @@ export const ErrorResponseSchemas = {
 	unauthorized: defaultResponseSchema.describe("Unauthorized."),
 	notFound: defaultResponseSchema.describe("Not found."),
 	invalidCredentials: defaultResponseSchema.describe("Invalid credentials."),
-	conflict: defaultResponseSchema.describe("Conflict. Resource already exists."),
-} 
+	conflict: defaultResponseSchema.describe(
+		"Conflict. Resource already exists.",
+	),
+};
