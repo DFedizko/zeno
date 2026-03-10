@@ -8,8 +8,7 @@
       "y": -607,
       "model": "claude-4.5-sonnet",
       "width": 740,
-      "height": 485,
-      "content": "Adicione uma borda simples cinza claro em cada um dos cards das screens"
+      "height": 485
     },
     {
       "type": "rectangle",
