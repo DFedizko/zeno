@@ -5094,6 +5094,148 @@
             },
             {
               "type": "frame",
+              "id": "vA8yL",
+              "name": "Page Title",
+              "width": "fill_container",
+              "padding": [
+                0,
+                0,
+                8,
+                0
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "8wbzL",
+                  "name": "titleText",
+                  "fill": "#111827",
+                  "content": "Histórico de Transações",
+                  "fontFamily": "Manrope",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "Q7JgR",
+                  "name": "filterButtons",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "K7x3b",
+                      "name": "filterAll",
+                      "fill": "#000000",
+                      "cornerRadius": 8,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "rHaNk",
+                          "name": "filterAllText",
+                          "fill": "#FFFFFF",
+                          "content": "Todos",
+                          "fontFamily": "Manrope",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "S7K96",
+                      "name": "filterIncome",
+                      "fill": "#F3F4F6",
+                      "cornerRadius": 8,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Iuivt",
+                          "name": "filterIncomeText",
+                          "fill": "#6B7280",
+                          "content": "Receitas",
+                          "fontFamily": "Manrope",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lGeRB",
+                      "name": "filterExpenses",
+                      "fill": "#F3F4F6",
+                      "cornerRadius": 8,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ui2VF",
+                          "name": "filterExpensesText",
+                          "fill": "#6B7280",
+                          "content": "Despesas",
+                          "fontFamily": "Manrope",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sBdb2",
+                      "name": "exportButton",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 8,
+                      "gap": 6,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "Mt74Q",
+                          "name": "exportIcon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "download",
+                          "iconFontFamily": "lucide",
+                          "fill": "#374151"
+                        },
+                        {
+                          "type": "text",
+                          "id": "rLXW0",
+                          "name": "exportText",
+                          "fill": "#374151",
+                          "content": "Exportar",
+                          "fontFamily": "Manrope",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
               "id": "FCCIM",
               "name": "Content Area",
               "width": "fill_container",
@@ -5101,148 +5243,6 @@
               "layout": "vertical",
               "gap": 20,
               "children": [
-                {
-                  "type": "frame",
-                  "id": "vA8yL",
-                  "name": "Page Title",
-                  "width": "fill_container",
-                  "padding": [
-                    0,
-                    0,
-                    8,
-                    0
-                  ],
-                  "justifyContent": "space_between",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "8wbzL",
-                      "name": "titleText",
-                      "fill": "#111827",
-                      "content": "Histórico de Transações",
-                      "fontFamily": "Manrope",
-                      "fontSize": 24,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "Q7JgR",
-                      "name": "filterButtons",
-                      "gap": 8,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "K7x3b",
-                          "name": "filterAll",
-                          "fill": "#000000",
-                          "cornerRadius": 8,
-                          "padding": [
-                            8,
-                            16
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "rHaNk",
-                              "name": "filterAllText",
-                              "fill": "#FFFFFF",
-                              "content": "Todos",
-                              "fontFamily": "Manrope",
-                              "fontSize": 13,
-                              "fontWeight": "600"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "S7K96",
-                          "name": "filterIncome",
-                          "fill": "#F3F4F6",
-                          "cornerRadius": 8,
-                          "padding": [
-                            8,
-                            16
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "Iuivt",
-                              "name": "filterIncomeText",
-                              "fill": "#6B7280",
-                              "content": "Receitas",
-                              "fontFamily": "Manrope",
-                              "fontSize": 13,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "lGeRB",
-                          "name": "filterExpenses",
-                          "fill": "#F3F4F6",
-                          "cornerRadius": 8,
-                          "padding": [
-                            8,
-                            16
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "ui2VF",
-                              "name": "filterExpensesText",
-                              "fill": "#6B7280",
-                              "content": "Despesas",
-                              "fontFamily": "Manrope",
-                              "fontSize": 13,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "sBdb2",
-                          "name": "exportButton",
-                          "fill": "#FFFFFF",
-                          "cornerRadius": 8,
-                          "gap": 6,
-                          "padding": [
-                            8,
-                            16
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon_font",
-                              "id": "Mt74Q",
-                              "name": "exportIcon",
-                              "width": 16,
-                              "height": 16,
-                              "iconFontName": "download",
-                              "iconFontFamily": "lucide",
-                              "fill": "#374151"
-                            },
-                            {
-                              "type": "text",
-                              "id": "rLXW0",
-                              "name": "exportText",
-                              "fill": "#374151",
-                              "content": "Exportar",
-                              "fontFamily": "Manrope",
-                              "fontSize": 13,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
                 {
                   "type": "frame",
                   "id": "H3pZY",
