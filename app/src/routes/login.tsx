@@ -1,4 +1,4 @@
-import { createFileRoute, redirect, Router, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
 	postApiAuthLoginMutationRequestSchema,
 	usePostApiAuthLogin,
@@ -7,6 +7,11 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { apiClient } from "@/lib/apiClient";
+import { Form } from "@/components/organisms/Form";
+import { InputGroup } from "@/components/molecules/InputGroup";
+import { RememberRow } from "@/components/molecules/RememberRow";
+import { Mail, Lock } from "lucide-react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/login")({
 	component: LoginPage,
@@ -14,16 +19,16 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
 	const navigate = useNavigate();
+	const [rememberMe, setRememberMe] = useState(false);
 
 	const {
 		mutate: loginMutation,
 		isPending,
-		isError
+		isError,
 	} = usePostApiAuthLogin({
 		client: { client: apiClient },
 		mutation: {
 			onSuccess: () => {
-				console.log("success!");
 				navigate({ to: "/dashboard" });
 			},
 		},
@@ -37,58 +42,72 @@ function LoginPage() {
 		resolver: zodResolver(postApiAuthLoginMutationRequestSchema),
 	});
 
-	const onSubmit = handleSubmit(
-		async (data: PostApiAuthLoginMutationRequest) => {
-			await loginMutation({ data });
-		},
-	);
+	const onSubmit = handleSubmit(async (data) => {
+		await loginMutation({ data });
+	});
 
 	return (
-		<div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 p-8">
-			<h1 className="text-xl font-semibold">Entrar</h1>
-			<form onSubmit={onSubmit} className="flex w-full max-w-xs flex-col gap-3">
-				<fieldset className="flex flex-col">
-					<label htmlFor="email-input">Email</label>
-					<input
-						type="email"
-						id="email-input"
-						placeholder="E-mail"
-						{...register("email")}
-						required
-						className="rounded border border-gray-300 px-3 py-2"
-					/>
-					{errors.email && (
-						<p className="text-sm text-red-600" role="alert">
-							{errors.email.message}
+		<div className="flex flex-1 items-center justify-center bg-background">
+			<Form>
+				<Form.Header
+					title="Welcome back"
+					subtitle="Enter your credentials to access your account"
+				/>
+
+				<Form.Body onSubmit={onSubmit}>
+					<Form.Fields>
+						<InputGroup
+							label="Email"
+							icon={Mail}
+							type="email"
+							placeholder="you@example.com"
+							autoComplete="email"
+							{...register("email")}
+						/>
+						{errors.email && (
+							<p className="text-sm text-destructive">{errors.email.message}</p>
+						)}
+						<InputGroup
+							label="Password"
+							icon={Lock}
+							type="password"
+							placeholder="••••••••"
+							autoComplete="current-password"
+							{...register("password")}
+						/>
+						{errors.password && (
+							<p className="text-sm text-destructive">{errors.password.message}</p>
+						)}
+						<RememberRow
+							checked={rememberMe}
+							onCheckedChange={setRememberMe}
+							onForgotPassword={() => {}}
+						/>
+					</Form.Fields>
+
+					<Form.Actions>
+						<Form.Submit disabled={isPending}>
+							{isPending ? "Signing in..." : "Sign in"}
+						</Form.Submit>
+						<Form.Divider />
+						<Form.SocialButton>
+							Continue with Google
+						</Form.SocialButton>
+					</Form.Actions>
+
+					{isError && (
+						<p className="text-sm text-destructive text-center">
+							Failed to login
 						</p>
 					)}
-				</fieldset>
-				<fieldset className="flex flex-col">
-					<label htmlFor="password-input">Senha</label>
-					<input
-						type="password"
-						id="password-input"
-						placeholder="********"
-						{...register("password")}
-						required
-						minLength={8}
-						className="rounded border border-gray-300 px-3 py-2"
-					/>
-					{errors.password && (
-						<p className="text-sm text-red-600" role="alert">
-							{errors.password.message}
-						</p>
-					)}
-				</fieldset>
-				<button
-					type="submit"
-					disabled={isPending}
-					className="rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-50"
-				>
-					{isPending ? "Entrando…" : "Entrar"}
-				</button>
-				{isError && <p className="text-red-600">Failed to login</p>}
-			</form>
+				</Form.Body>
+
+				<Form.Footer
+					text="Don't have an account?"
+					linkText="Sign up"
+					onLinkClick={() => navigate({ to: "/login" })}
+				/>
+			</Form>
 		</div>
 	);
 }
