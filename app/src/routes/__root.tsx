@@ -10,9 +10,9 @@ export const Route = createRootRouteWithContext()({
 
 function RootComponent() {
 	return (
-		<>
+		<main className="flex flex-col h-screen">
 			<HeadContent />
 			<Outlet />
-		</>
+		</main>
 	);
 }

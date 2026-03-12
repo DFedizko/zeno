@@ -14,7 +14,7 @@ const NavItemBase = forwardRef<HTMLAnchorElement, NavItemBaseProps>(
       ref={ref}
       {...props}
       className={cn(
-        "flex items-center gap-3 h-11 px-3 rounded-lg text-body font-medium text-secondary [&>svg]:text-secondary",
+        "flex items-center gap-3 h-11 px-3 rounded-lg text-sm font-medium text-secondary [&>svg]:text-secondary",
         "data-[status=active]:bg-muted data-[status=active]:text-primary data-[status=active]:[&>svg]:text-primary",
         className,
       )}

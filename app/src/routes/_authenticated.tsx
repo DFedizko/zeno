@@ -36,9 +36,9 @@ function AuthenticatedLayout() {
 	const { user } = Route.useRouteContext();
 
 	return (
-		<div className="flex h-screen bg-background">
+		<div className="flex flex-1 min-h-0 bg-background">
 			<Sidebar />
-			<div className="flex flex-col flex-1 gap-6 p-6 overflow-auto">
+			<div className="flex flex-col flex-1 min-h-0 gap-6 p-6">
 				<Header
 					userName={user?.name ?? "Usuário"}
 					userEmail={user?.email ?? ""}

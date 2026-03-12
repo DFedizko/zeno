@@ -7,7 +7,7 @@ import {
 import { NavItem } from "@/components/atoms/NavItem";
 
 export const Sidebar = () => (
-  <aside className="flex flex-col gap-2 w-60 h-full bg-card rounded-l-2xl py-6">
+  <aside className="flex flex-col gap-2 w-60 h-full bg-card py-6">
     <div className="px-6 pb-6">
       <span className="text-lg font-bold text-primary">ZENO</span>
     </div>

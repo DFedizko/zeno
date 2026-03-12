@@ -19,7 +19,7 @@ export const TransactionHistory = ({
   title = "Histórico de transações",
   transactions,
 }: TransactionHistoryProps) => (
-  <div className="flex flex-col gap-3 p-4 bg-card rounded-xl border border-border w-full">
+  <div className="flex flex-col gap-3 p-4 bg-card rounded-xl border border-border w-full flex-1">
     <span className="text-subtitle font-semibold text-primary">{title}</span>
 
     <div className="flex items-center justify-between">
