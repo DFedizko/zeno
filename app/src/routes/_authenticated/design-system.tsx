@@ -1,5 +1,4 @@
-import { createFileRoute, useRouter } from "@tanstack/react-router";
-import { useGetApiAuthMe } from "@/gen/hooks/useGetApiAuthMe";
+import { createFileRoute } from "@tanstack/react-router";
 import { StatCard } from "@/components/molecules/StatCard";
 import { CategorySpendingCard } from "@/components/organisms/CategorySpendingCard";
 import { BalanceCard } from "@/components/organisms/BalanceCard";
@@ -8,7 +7,10 @@ import { SearchBox } from "@/components/molecules/SearchBox";
 import { IconButton } from "@/components/atoms/IconButton";
 import {
 	Bell,
+	Download,
 	Flag,
+	Lock,
+	Mail,
 	Settings,
 	Target,
 	TrendingDown,
@@ -19,6 +21,14 @@ import { ActionButton } from "@/components/molecules/ActionButton";
 import { SpendingLimitCard } from "@/components/organisms/SpendingLimitCard";
 import { TransactionHistory } from "@/components/organisms/TransactionHistory";
 import { MyCardSection } from "@/components/organisms/MyCardSection";
+import { FormSection } from "@/components/organisms/FormSection";
+import { useForm } from "react-hook-form";
+import { Form } from "@/components/organisms/Form";
+import { InputGroup } from "@/components/molecules/InputGroup";
+import { RememberRow } from "@/components/molecules/RememberRow";
+import { PageTitle } from "@/components/atoms/PageTitle";
+import { Button } from "@/components/ui/button";
+import { HistoryTable } from "@/components/organisms/HistoryTable";
 
 export const Route = createFileRoute("/_authenticated/design-system")({
 	component: DashboardPage,
@@ -26,6 +36,11 @@ export const Route = createFileRoute("/_authenticated/design-system")({
 
 function DashboardPage() {
 	const [period, setPeriod] = useState("2026-02");
+	const { register, handleSubmit } = useForm<{
+		email: string;
+		password: string;
+	}>();
+	const [rememberMe, setRememberMe] = useState(false);
 
 	return (
 		<div className="p-8">
@@ -203,9 +218,115 @@ function DashboardPage() {
 					/>
 				</div>
 			</div>
-			<p className="mt-2 text-gray-600">
-				{/* Bem-vindo, {user?.name ?? user?.email} */}
-			</p>
+			<FormSection
+				register={register}
+				rememberMe={rememberMe}
+				onRememberChange={setRememberMe}
+				onForgotPassword={() => {}}
+			/>
+			<div className="flex">
+
+
+				<Form>
+					<Form.Header
+						title="Welcome back"
+						subtitle="Enter your credentials to access your account"
+					/>
+					<Form.Body onSubmit={() => {}}>
+						<Form.Fields>
+							<InputGroup
+								label="Email"
+								placeholder="you@example.com"
+								icon={Mail}
+								{...register("email")}
+							/>
+							<InputGroup
+								label="Password"
+								icon={Lock}
+								placeholder="••••••••"
+								{...register("password")}
+							/>
+							<RememberRow
+								checked={rememberMe}
+								onCheckedChange={setRememberMe}
+								onForgotPassword={() => {}}
+							/>
+						</Form.Fields>
+						<Form.Actions>
+							<Form.Submit disabled={false}>Sign in</Form.Submit>
+							<Form.Divider />
+							<Form.SocialButton>
+								Continue with Google
+							</Form.SocialButton>
+						</Form.Actions>
+					</Form.Body>
+					<Form.Footer
+						text="Don't have an account?"
+						linkText="Sign up"
+						onLinkClick={() => {}}
+					/>
+				</Form>
+			</div>
+			<PageTitle title="Histórico de Transações">
+				<Button variant="filterActive" size="filter">Todos</Button>
+				<Button variant="filter" size="filter">Receitas</Button>
+				<Button variant="filter" size="filter">Despesas</Button>
+				<Button variant="outline" size="filter"><Download className="size-4" />Exportar</Button>
+			</PageTitle>
+			<HistoryTable
+				transactions={[
+					{
+						id: "1",
+						date: "14 fev, 2026",
+						description: "Salário",
+						card: "Mercado Pago",
+						category: "Receita",
+						categoryColor: "#10B981",
+						amount: "+R$ 5.200",
+						positive: true,
+					},
+					{
+						id: "2",
+						date: "13 fev, 2026",
+						description: "Compras Online",
+						card: "Itaú",
+						category: "Compras",
+						categoryColor: "#3B82F6",
+						amount: "-R$ 324",
+						positive: false,
+					},
+					{
+						id: "3",
+						date: "12 fev, 2026",
+						description: "Restaurante e Gastronomia",
+						card: "Nubank",
+						category: "Alimentação",
+						categoryColor: "#F59E0B",
+						amount: "-R$ 87",
+						positive: false,
+					},
+					{
+						id: "4",
+						date: "11 fev, 2026",
+						description: "Conta de Luz",
+						card: "Mercado Pago",
+						category: "Utilidades",
+						categoryColor: "#8B5CF6",
+						amount: "-R$ 142",
+						positive: false,
+					},
+					{
+						id: "5",
+						date: "10 fev, 2026",
+						description: "Projeto Freelance",
+						card: "Bradesco",
+						category: "Receita",
+						categoryColor: "#10B981",
+						amount: "+R$ 1.500",
+						positive: true,
+					},
+				]}
+			/>
 		</div>
-	)
+	);
 }
