@@ -112,7 +112,7 @@ Complex, standalone sections of an interface. Organisms represent distinct secti
 
 ### 4. Templates
 
-Page-level layouts that define content structure without actual content. Templates show the skeletal structure of a page.
+Page-level components that compose organisms into a complete layout. Templates own the wiring: they import organisms, define the structure, manage UI state, and receive typed data props from pages.
 
 **Examples:**
 
@@ -123,10 +123,54 @@ Page-level layouts that define content structure without actual content. Templat
 
 **Characteristics:**
 
-- Composed of organisms
-- Define page structure
-- Use placeholder content
-- Establish content hierarchy
+- Composed of organisms (and molecules/atoms when needed)
+- Accept typed data props — not `ReactNode` slots
+- Own UI state that is purely presentational (e.g. selected tab, open modal)
+- Pages pass raw data; templates decide how to render it
+
+**Generic Example:**
+
+```tsx
+// templates/DashboardTemplate.tsx
+interface Post { id: string; title: string; excerpt: string; }
+interface Author { name: string; avatarUrl: string; }
+
+interface BlogTemplateProps {
+  posts: Post[];
+  author: Author;
+  defaultTab: "latest" | "popular";
+}
+
+export const BlogTemplate = ({ posts, author, defaultTab }: BlogTemplateProps) => {
+  const [tab, setTab] = useState(defaultTab);
+
+  return (
+    <div className="flex gap-8">
+      <main className="flex-1">
+        <TabBar value={tab} onChange={setTab} />        {/* Molecule */}
+        <PostList posts={posts} />                       {/* Organism */}
+      </main>
+      <aside>
+        <AuthorCard author={author} />                   {/* Organism */}
+      </aside>
+    </div>
+  );
+};
+
+// pages/BlogPage.tsx — only data, no layout decisions
+function BlogPage() {
+  return (
+    <BlogTemplate
+      posts={posts}
+      author={author}
+      defaultTab="latest"
+    />
+  );
+}
+```
+
+> **Why data props over `ReactNode` slots?**
+> Passing `ReactNode` slots pushes layout decisions up into the page, splitting responsibility between two files. Data props keep all rendering logic inside the template, making it the single source of truth for how the page looks.
 
 ### 5. Pages
 

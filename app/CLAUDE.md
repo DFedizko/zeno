@@ -117,6 +117,7 @@ src/
 ├── gen/            # Kubb-generated client — do not edit manually
 ├── pages/          # TanStack Router file-based routes (routesDirectory)
 ├── components/     # Reusable UI components (named exports)
+├── models/         # Domain model classes — business rules, data transforms
 ├── stores/         # Zustand stores
 ├── hooks/          # Custom hooks
 ├── lib/            # Utilities and helpers
@@ -124,6 +125,56 @@ src/
 ```
 
 Reusable components go in `src/components/`. Feature-specific components can be co-located with their route/page.
+
+## Business logic → models
+
+Any logic that is not directly about rendering goes in `src/models/` as a class. This includes calculations, data transformations, formatting rules, and domain decisions.
+
+- Model files are named in **PascalCase** (`ExpenseChart.ts`, `MonthlyBalance.ts`)
+- Each file exports one class with the same name as the file
+- Pure utility methods with no instance state use `static`
+- Methods that operate on instance data are regular methods
+- If the logic fits an existing model, add a method to it — don't create a new file
+
+**Class conventions:**
+- Constructor comes first, methods below
+- Always use TypeScript `private` / `public` keywords — never `#` private fields
+- All members (constructor, methods, getters, statics) must have an explicit `public` or `private` modifier
+- **Never use parameter properties** (`constructor(private x: T)`) — the project has `erasableSyntaxOnly` enabled which forbids this syntax. Always declare fields explicitly above the constructor and assign them in the body
+
+```ts
+// Wrong — business logic inside a component
+const total = data.reduce((sum, d) => sum + d.expense, 0);
+const label = value >= 1000 ? `R$${(value / 1000).toFixed(0)}k` : `R$${value}`;
+
+// Correct — extracted to a model
+import { ExpenseChart } from "@/models/ExpenseChart";
+import { Currency } from "@/models/Currency";
+
+const total = ExpenseChart.calculateExpenseTotal(data);
+const label = Currency.formatYAxisTick(value);
+```
+
+```ts
+// Model class structure
+export class MyModel {
+  public static readonly SOME_CONSTANT = "value";
+
+  // Wrong — parameter properties are forbidden
+  public constructor(private readonly data: MyData) {}
+
+  // Correct — declare fields explicitly, assign in body
+  private readonly data: MyData;
+
+  public constructor(data: MyData) {
+    this.data = data;
+  }
+
+  public doSomething(): string { ... }
+
+  private helper(): string { ... }
+}
+```
 
 ## TanStack Router naming conventions
 
