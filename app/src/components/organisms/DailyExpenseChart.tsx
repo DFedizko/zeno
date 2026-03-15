@@ -62,9 +62,13 @@ export const DailyExpenseChart = ({
 								<ChartTooltipContent
 									labelFormatter={(v) => {
 										const n = Number(v);
-										return Number.isFinite(n) ? tooltipLabelFormatter(n) : "";
+										return Number.isFinite(n)
+											? tooltipLabelFormatter(n)
+											: "";
 									}}
-									formatter={(value) => Currency.format(Number(value))}
+									formatter={(value) =>
+										Currency.format(Number(value))
+									}
 								/>
 							}
 						/>

@@ -81,7 +81,9 @@ export const PeriodSelector = ({
 							>
 								<ChevronLeft className="size-4 text-muted-foreground" />
 							</button>
-							<span className="text-sm font-medium">{viewYear}</span>
+							<span className="text-sm font-medium">
+								{viewYear}
+							</span>
 							<button
 								type="button"
 								onClick={() => setViewYear((y) => y + 1)}
@@ -93,7 +95,8 @@ export const PeriodSelector = ({
 						<div className="grid grid-cols-3 gap-1">
 							{ExpenseChart.MONTHS_SHORT.map((label, i) => {
 								const isSelected =
-									date.getMonth() === i && date.getFullYear() === viewYear;
+									date.getMonth() === i &&
+									date.getFullYear() === viewYear;
 								return (
 									<button
 										key={label}
@@ -122,7 +125,13 @@ export const PeriodSelector = ({
 									key={year}
 									type="button"
 									onClick={() =>
-										onDateChange(new Date(year, date.getMonth(), date.getDate()))
+										onDateChange(
+											new Date(
+												year,
+												date.getMonth(),
+												date.getDate(),
+											),
+										)
 									}
 									className={`w-full py-2 rounded text-sm font-medium transition-colors ${
 										isSelected

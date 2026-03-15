@@ -11,7 +11,11 @@ import { MonthlyBalanceChart } from "@/components/organisms/MonthlyBalanceChart"
 import { PeriodSelector } from "@/components/organisms/PeriodSelector";
 import { Period, type PeriodGranularity } from "@/models/Period";
 import { ExpenseChart } from "@/models/ExpenseChart";
-import type { HourlyDataPoint, DailyDataPoint, MonthlyDataPoint } from "@/models/ExpenseChart";
+import type {
+	HourlyDataPoint,
+	DailyDataPoint,
+	MonthlyDataPoint,
+} from "@/models/ExpenseChart";
 
 export type { HourlyDataPoint, DailyDataPoint, MonthlyDataPoint };
 
@@ -35,7 +39,11 @@ export const BalanceChartPanel = ({
 		if (v === "bar" && granularity === "day") setGranularity("month");
 	};
 
-	const chart = new ExpenseChart(hourlyDataByDay, dailyDataByMonth, monthlyDataByYear);
+	const chart = new ExpenseChart(
+		hourlyDataByDay,
+		dailyDataByMonth,
+		monthlyDataByYear,
+	);
 	const period = new Period(granularity, selectedDate);
 
 	return (
@@ -48,14 +56,20 @@ export const BalanceChartPanel = ({
 				<div className="flex items-center gap-2">
 					<Select
 						value={chartType}
-						onValueChange={(v) => handleChartTypeChange(v as "line" | "bar")}
+						onValueChange={(v) =>
+							handleChartTypeChange(v as "line" | "bar")
+						}
 					>
 						<SelectTrigger className="h-auto border-none bg-muted px-3 py-1.5 text-[13px] font-medium text-primary rounded-md">
 							{ExpenseChart.CHART_TITLES[chartType]}
 						</SelectTrigger>
 						<SelectContent>
-							<SelectItem value="line">{ExpenseChart.CHART_TITLES.line}</SelectItem>
-							<SelectItem value="bar">{ExpenseChart.CHART_TITLES.bar}</SelectItem>
+							<SelectItem value="line">
+								{ExpenseChart.CHART_TITLES.line}
+							</SelectItem>
+							<SelectItem value="bar">
+								{ExpenseChart.CHART_TITLES.bar}
+							</SelectItem>
 						</SelectContent>
 					</Select>
 					<PeriodSelector
@@ -63,7 +77,9 @@ export const BalanceChartPanel = ({
 						date={selectedDate}
 						availableYears={chart.getAvailableYears()}
 						availableGranularities={
-							chartType === "bar" ? ["month", "year"] : ["day", "month", "year"]
+							chartType === "bar"
+								? ["month", "year"]
+								: ["day", "month", "year"]
 						}
 						onGranularityChange={setGranularity}
 						onDateChange={setSelectedDate}
@@ -71,9 +87,16 @@ export const BalanceChartPanel = ({
 				</div>
 			</div>
 			{chartType === "line" ? (
-				<DailyExpenseChart {...chart.buildLineChartConfig(granularity, selectedDate)} />
+				<DailyExpenseChart
+					{...chart.buildLineChartConfig(granularity, selectedDate)}
+				/>
 			) : (
-				<MonthlyBalanceChart monthlyData={chart.buildBarChartData(granularity, selectedDate)} />
+				<MonthlyBalanceChart
+					monthlyData={chart.buildBarChartData(
+						granularity,
+						selectedDate,
+					)}
+				/>
 			)}
 		</div>
 	);
