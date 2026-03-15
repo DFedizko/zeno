@@ -6,10 +6,11 @@ export const postLogout = async (
 	reply: FastifyReply,
 ) => {
 	return reply
-		.clearCookie("accessToken", {
+		.setCookie("accessToken", "", {
 			httpOnly: true,
 			sameSite: "strict",
 			path: "/",
+			maxAge: 0,
 		})
 		.status(200)
 		.send({ status: 200, message: "Logout successful" });
