@@ -38,7 +38,7 @@ function AuthenticatedLayout() {
 	return (
 		<div className="flex flex-1 min-h-0 bg-background">
 			<Sidebar />
-			<div className="flex flex-col flex-1 min-h-0 gap-6 p-6">
+			<div className="flex flex-col flex-1 min-h-0 gap-6 p-6 ml-60 overflow-y-auto">
 				<Header
 					userName={user?.name ?? "Usuário"}
 					userEmail={user?.email ?? ""}
