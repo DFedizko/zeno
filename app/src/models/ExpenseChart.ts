@@ -28,8 +28,18 @@ export interface LineChartConfig {
 
 export class ExpenseChart {
 	public static readonly MONTHS_SHORT = [
-		"Jan", "Fev", "Mar", "Abr", "Mai", "Jun",
-		"Jul", "Ago", "Set", "Out", "Nov", "Dez",
+		"Jan",
+		"Fev",
+		"Mar",
+		"Abr",
+		"Mai",
+		"Jun",
+		"Jul",
+		"Ago",
+		"Set",
+		"Out",
+		"Nov",
+		"Dez",
 	];
 
 	public static readonly CHART_TITLES: Record<"line" | "bar", string> = {
@@ -59,7 +69,10 @@ export class ExpenseChart {
 		return Object.keys(this.monthlyDataByYear).map(Number).sort();
 	}
 
-	public buildLineChartConfig(granularity: PeriodGranularity, date: Date): LineChartConfig {
+	public buildLineChartConfig(
+		granularity: PeriodGranularity,
+		date: Date,
+	): LineChartConfig {
 		if (granularity === "day") {
 			const dayKey = format(date, "yyyy-MM-dd");
 			return {
@@ -76,7 +89,10 @@ export class ExpenseChart {
 			const monthKey = format(date, "yyyy-MM");
 			const lastDay = getDaysInMonth(date);
 			const sparseMap = new Map(
-				(this.dailyDataByMonth[monthKey] ?? []).map((d) => [d.x, d.expense]),
+				(this.dailyDataByMonth[monthKey] ?? []).map((d) => [
+					d.x,
+					d.expense,
+				]),
 			);
 			const fullData = Array.from({ length: lastDay }, (_, i) => ({
 				x: i + 1,
@@ -99,12 +115,16 @@ export class ExpenseChart {
 			xDomain: [1, 12],
 			xTicks: monthlyData.map((_, i) => i + 1),
 			xTickFormatter: (v) => ExpenseChart.MONTHS_SHORT[v - 1] ?? "",
-			tooltipLabelFormatter: (v) => ExpenseChart.MONTHS_SHORT[v - 1] ?? "",
+			tooltipLabelFormatter: (v) =>
+				ExpenseChart.MONTHS_SHORT[v - 1] ?? "",
 			totalLabel: "Total anual",
 		};
 	}
 
-	public buildBarChartData(granularity: PeriodGranularity, date: Date): MonthlyDataPoint[] {
+	public buildBarChartData(
+		granularity: PeriodGranularity,
+		date: Date,
+	): MonthlyDataPoint[] {
 		const yearKey = format(date, "yyyy");
 		const monthlyData = this.monthlyDataByYear[yearKey] ?? [];
 		if (granularity === "year") return monthlyData;

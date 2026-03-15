@@ -4,7 +4,10 @@ import { ptBR } from "date-fns/locale";
 export type PeriodGranularity = "day" | "month" | "year";
 
 export class Period {
-	public static readonly GRANULARITY_LABELS: Record<PeriodGranularity, string> = {
+	public static readonly GRANULARITY_LABELS: Record<
+		PeriodGranularity,
+		string
+	> = {
 		day: "Dia",
 		month: "Mês",
 		year: "Ano",
@@ -20,9 +23,13 @@ export class Period {
 
 	public get subtitle(): string {
 		if (this.granularity === "day")
-			return this.capitalize(format(this.date, "d 'de' MMMM 'de' yyyy", { locale: ptBR }));
+			return this.capitalize(
+				format(this.date, "d 'de' MMMM 'de' yyyy", { locale: ptBR }),
+			);
 		if (this.granularity === "month")
-			return this.capitalize(format(this.date, "MMMM 'de' yyyy", { locale: ptBR }));
+			return this.capitalize(
+				format(this.date, "MMMM 'de' yyyy", { locale: ptBR }),
+			);
 		return format(this.date, "yyyy");
 	}
 

@@ -84,7 +84,12 @@ function DashboardPage() {
 								displayValue: "12%",
 								color: "#FBCFE8",
 							},
-							{ name: "Saúde", value: 9, displayValue: "9%", color: "#BAE6FD" },
+							{
+								name: "Saúde",
+								value: 9,
+								displayValue: "9%",
+								color: "#BAE6FD",
+							},
 							{
 								name: "Outros",
 								value: 14,
@@ -224,8 +229,6 @@ function DashboardPage() {
 				onForgotPassword={() => {}}
 			/>
 			<div className="flex">
-
-
 				<Form>
 					<Form.Header
 						title="Welcome back"
@@ -267,10 +270,19 @@ function DashboardPage() {
 				</Form>
 			</div>
 			<PageTitle title="Histórico de Transações">
-				<Button variant="filterActive" size="filter">Todos</Button>
-				<Button variant="filter" size="filter">Receitas</Button>
-				<Button variant="filter" size="filter">Despesas</Button>
-				<Button variant="outline" size="filter"><Download className="size-4" />Exportar</Button>
+				<Button variant="filterActive" size="filter">
+					Todos
+				</Button>
+				<Button variant="filter" size="filter">
+					Receitas
+				</Button>
+				<Button variant="filter" size="filter">
+					Despesas
+				</Button>
+				<Button variant="outline" size="filter">
+					<Download className="size-4" />
+					Exportar
+				</Button>
 			</PageTitle>
 			<HistoryTable
 				transactions={[

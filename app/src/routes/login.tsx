@@ -65,7 +65,9 @@ function LoginPage() {
 							{...register("email")}
 						/>
 						{errors.email && (
-							<p className="text-sm text-destructive">{errors.email.message}</p>
+							<p className="text-sm text-destructive">
+								{errors.email.message}
+							</p>
 						)}
 						<InputGroup
 							label="Password"
@@ -76,7 +78,9 @@ function LoginPage() {
 							{...register("password")}
 						/>
 						{errors.password && (
-							<p className="text-sm text-destructive">{errors.password.message}</p>
+							<p className="text-sm text-destructive">
+								{errors.password.message}
+							</p>
 						)}
 						<RememberRow
 							checked={rememberMe}
