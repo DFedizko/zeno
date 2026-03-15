@@ -18,7 +18,7 @@ export const jwtPlugin = fp(async (app: FastifyTypedInstance) => {
 		async (request: FastifyRequest, _: FastifyReply) => {
 			try {
 				await request.jwtVerify();
-			} catch (_) {
+			} catch {
 				throw new UnauthorizedError(
 					"Unauthorized. Please provide a valid JWT token.",
 				);

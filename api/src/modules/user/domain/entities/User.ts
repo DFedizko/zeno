@@ -1,8 +1,8 @@
 export class User {
 	private constructor(
-		public readonly _email: string,
-		public readonly _name?: string,
-		public readonly _password?: string,
+		private readonly _email: string,
+		private readonly _name?: string,
+		private readonly _password?: string,
 	) {}
 
 	public static create(email: string, name?: string, password?: string) {
