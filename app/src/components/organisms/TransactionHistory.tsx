@@ -19,7 +19,7 @@ export const TransactionHistory = ({
   title = "Histórico de transações",
   transactions,
 }: TransactionHistoryProps) => (
-  <div className="flex flex-col gap-3 p-4 bg-card rounded-xl border border-border w-full flex-1">
+  <div className="flex flex-col gap-3 p-4 bg-card rounded-xl border border-border w-full flex-1 min-h-0">
     <span className="text-subtitle font-semibold text-primary">{title}</span>
 
     <div className="flex items-center justify-between">
@@ -27,7 +27,7 @@ export const TransactionHistory = ({
       <span className="text-caption text-muted-foreground">Valor</span>
     </div>
 
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 overflow-y-auto">
       {transactions.map((tx) => (
         <TransactionItem
           key={tx.id}
