@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { StatCard } from "@/components/molecules/StatCard";
 import { CategorySpendingCard } from "@/components/organisms/CategorySpendingCard";
-import { BalanceCard } from "@/components/organisms/BalanceCard";
-import { useState } from "react";
+import { BalanceChartPanel } from "@/components/organisms/BalanceChartPanel";
 import { SearchBox } from "@/components/molecules/SearchBox";
 import { IconButton } from "@/components/atoms/IconButton";
 import {
@@ -35,7 +34,6 @@ export const Route = createFileRoute("/_authenticated/design-system")({
 });
 
 function DashboardPage() {
-	const [period, setPeriod] = useState("2026-02");
 	const { register, handleSubmit } = useForm<{
 		email: string;
 		password: string;
@@ -96,26 +94,27 @@ function DashboardPage() {
 						]}
 						subtitle="Baseado nos padrões de gastos dos últimos 30 dias"
 					/>
-					<BalanceCard
+					<BalanceChartPanel
 						amount="R$ 8.300"
-						periodLabel="Fevereiro 2026"
-						selectedPeriod={period}
-						onPeriodChange={setPeriod}
-						periods={[
-							{ value: "2026-01", label: "Jan 2026" },
-							{ value: "2026-02", label: "Fev 2026" },
-							{ value: "2026-03", label: "Mar 2026" },
-						]}
-						data={[
-							{ day: "05", income: 3000, expense: 1200 },
-							{ day: "10", income: 5500, expense: 2800 },
-							{ day: "15", income: 8000, expense: 4100 },
-							{ day: "20", income: 11000, expense: 5500 },
-							{ day: "25", income: 13500, expense: 6200 },
-							{ day: "28", income: 15000, expense: 6700 },
-						]}
-						difference="Diferença: +R$ 8.300 este mês"
-						differencePositive
+						dailyDataByMonth={{
+							"2026-02": [
+								{ day: "05", expense: 900 },
+								{ day: "10", expense: 2300 },
+								{ day: "28", expense: 8100 },
+							],
+							"2026-03": [
+								{ day: "05", expense: 1200 },
+								{ day: "10", expense: 2800 },
+								{ day: "28", expense: 6700 },
+							],
+						}}
+						monthlyDataByYear={{
+							"2026": [
+								{ month: "Jan", income: 8000, expense: 5000 },
+								{ month: "Fev", income: 8000, expense: 8100 },
+								{ month: "Mar", income: 15000, expense: 6700 },
+							],
+						}}
 					/>
 					<div className="flex">
 						<IconButton icon={Bell} />
