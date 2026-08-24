@@ -1,0 +1,235 @@
+[33mcommit af1d5e29c0607f49c34005a0d61b8fcc66f683dc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:56:09 2026 -0300
+
+    chore: update route tree and design prototype
+
+[33mcommit cb07398504b254a62017dde78cc160fefa4c8704[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:56:04 2026 -0300
+
+    refactor: adjust dashboard layout and styling
+
+[33mcommit 7505540e2df3ee6112ef28181879e97270d21e7a[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:55:56 2026 -0300
+
+    feat: add form and table showcases to design system page
+
+[33mcommit 3dcbf44f74cb9682a0013d0b72b80040d6ea561d[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:55:51 2026 -0300
+
+    feat: add filter button variants
+
+[33mcommit 739e21a8bc8d636578bd00d445e8a049b6d53aa8[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:55:48 2026 -0300
+
+    feat: create add card modal
+
+[33mcommit 07f8d80f626487224b20d85e43af4797c22744fc[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:55:42 2026 -0300
+
+    feat: create transactions page
+
+[33mcommit 1b86e7df510f7df7cb92139428a5aa080afdd76e[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:55:35 2026 -0300
+
+    refactor(login): use atomic form components
+
+[33mcommit c06910f8067317cbbc14d45ace528fb854cf219c[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:55:30 2026 -0300
+
+    feat: create form components for login
+
+[33mcommit 8bc76dc7e9873e9a2b8eea674ef6d3f0d9a2bb03[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Wed Mar 11 23:55:24 2026 -0300
+
+    chore: add composition-patterns skill
+
+[33mcommit 154c77f180f69dac5e7c82ce3bfa168b6469f87d[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Tue Mar 10 18:08:38 2026 -0300
+
+    feat: add commit message guidelines and rules
+
+[33mcommit 60f4f1812861127d46d4687f6e3f7e1bd6033963[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Tue Mar 10 00:23:55 2026 -0300
+
+    feat: creating dashboard page
+
+[33mcommit 21ece2d76c779e568e3acfc13f15b002556af77e[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Tue Mar 10 00:23:46 2026 -0300
+
+    feat: creating dashboard template
+
+[33mcommit 43ce80cc22787141580373bda98655fceca063eb[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Tue Mar 10 00:23:26 2026 -0300
+
+    feat: creating dashboard components
+
+[33mcommit 29be98692cab68085e8e2f45755f0ea68febee3d[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Tue Mar 10 00:22:15 2026 -0300
+
+    chore: adding shadcn
+
+[33mcommit 14e07f09bff737bd0bfa3b8e535d86c5c50486bc[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Tue Mar 10 00:19:17 2026 -0300
+
+    feat: adding shadcn and atomic design skills
+
+[33mcommit 9e173eebf192453fb085ff226774b05caf8a77b3[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Mon Mar 9 22:41:35 2026 -0300
+
+    chore(design): update prototype
+    
+    Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+[33mcommit 252a9f5b326611191acc3df979a143a87fb2bf33[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Mon Mar 9 22:41:30 2026 -0300
+
+    feat(app): add JWT auth with TanStack Router file-based routing
+    
+    Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+[33mcommit 41edbd2c6aa4a31e1a09cc5429d6ded5990ce3bd[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Mon Mar 9 22:41:14 2026 -0300
+
+    chore(app): update config and dependencies
+    
+    Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+[33mcommit 009d495660baa69419dcec54b183821eef3dfe1c[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Mon Mar 9 22:41:05 2026 -0300
+
+    feat(api): add JWT cookie authentication and logout endpoint
+    
+    Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+[33mcommit 7c69717025ee5b978c89c05366439cf45217f83d[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Mon Mar 9 22:40:58 2026 -0300
+
+    refactor(api): update shared errors, schemas and utilities
+    
+    Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+[33mcommit 1e40c947758c5f06f27b5eaa8b0037c1ed677dbb[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Mon Mar 9 22:40:52 2026 -0300
+
+    refactor(api): update user module and routes
+    
+    Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+[33mcommit 809564bc4662e5f704e2f0295152d072d606bf89[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Mon Mar 9 22:40:45 2026 -0300
+
+    chore(api): update config and dependencies
+    
+    Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+[33mcommit 5aca26e5fe3b81f6f798bd58421c59d3c72c88c4[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Mon Mar 9 22:40:35 2026 -0300
+
+    docs: add project and module documentation
+    
+    Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+[33mcommit 10f80824b519076bcb4943214e056c1bb01285db[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sat Mar 7 21:10:08 2026 -0300
+
+    docs(design): add design tokens and prototype assets
+    
+    Made-with: Cursor
+
+[33mcommit be08e36249bd4bac11089c794fec298cddabb36a[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sat Mar 7 21:10:06 2026 -0300
+
+    chore: remove financial-management-app in favor of app
+    
+    Made-with: Cursor
+
+[33mcommit 5061bac7eb73a9a85788f8dac6e19ee14d5dde76[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sat Mar 7 21:09:57 2026 -0300
+
+    feat(app): add Zeno frontend with JWT auth and protected routes
+    
+    Made-with: Cursor
+
+[33mcommit dda3066d28ca89d6d29fe792a082d6c818c09be3[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sat Mar 7 21:09:50 2026 -0300
+
+    chore(api): update config and dependencies
+    
+    Made-with: Cursor
+
+[33mcommit b9f40f1b995c31ffc5be89d2492ee9f4365ba8b3[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sat Mar 7 21:09:49 2026 -0300
+
+    refactor(api): update user routes and schemas
+    
+    Made-with: Cursor
+
+[33mcommit 13060fbc15dabdf77dcf2c27e1b9341fec05300d[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sat Mar 7 21:09:45 2026 -0300
+
+    feat(api): add JWT auth with httpOnly cookie and GET /auth/me
+    
+    Made-with: Cursor
+
+[33mcommit 45d23a39a74606767b941224ca41395308d52c38[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sat Mar 7 21:09:43 2026 -0300
+
+    fix(api): improve error handler with shared error schemas
+    
+    Made-with: Cursor
+
+[33mcommit 8dfb5f55485f5e568fe931f1c79f0cbc11ec1ab3[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sat Mar 7 21:09:39 2026 -0300
+
+    feat(api): add shared error schemas and InvalidResponseError
+    
+    Made-with: Cursor
+
+[33mcommit b63d251403370c79d94b39f1ba020c8ce62fa706[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Tue Feb 17 22:05:35 2026 -0300
+
+    chore: fine design adjusting
+
+[33mcommit 9202a028aa3d38af7d9ddebce42e98659fde9740[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Tue Feb 17 22:04:47 2026 -0300
+
+    feat: creating user endpoints and jwt authentication
+
+[33mcommit 144918a84f6836070de6b8e7d5a0c8803060f65b[m
+Author: DFedizko <fedizkopedro@gmail.com>
+Date:   Sun Feb 15 15:26:23 2026 -0300
+
+    wip: starting zeno project
