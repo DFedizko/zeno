@@ -1,6 +1,7 @@
 import { Circle } from "lucide-react";
 import { Divider } from "@/components/atoms/Divider";
 import { AuthFooter } from "@/components/molecules/AuthFooter";
+import { cn } from "@/lib/utils";
 import type { ComponentProps, ReactNode } from "react";
 
 interface FrameProps {
@@ -10,7 +11,10 @@ interface FrameProps {
 
 const Frame = ({ children, className }: FrameProps) => (
 	<div
-		className={`flex flex-col gap-8 w-[440px] p-12 bg-card rounded-2xl border border-border ${className ?? ""}`}
+		className={cn(
+			"flex w-full max-w-[440px] flex-col gap-8 rounded-2xl border border-border bg-card p-6 sm:p-12",
+			className,
+		)}
 	>
 		{children}
 	</div>

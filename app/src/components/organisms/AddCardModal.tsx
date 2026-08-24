@@ -52,11 +52,11 @@ export const AddCardModal = ({
 
 	return (
 		<Dialog open={isOpen} onOpenChange={handleOpenChange}>
-			<DialogContent className="max-w-md p-0">
+			<DialogContent className="max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] overflow-x-hidden overflow-y-auto p-0 sm:max-w-xl">
 				<DialogHeader className="sr-only">
 					<DialogTitle>Adicionar Cartão</DialogTitle>
 				</DialogHeader>
-				<Form className="w-[440px]">
+				<Form className="w-full max-w-none border-0">
 					<Form.Header
 						title="Adicionar Cartão"
 						logo={<CreditCard className="size-6" />}
@@ -71,7 +71,7 @@ export const AddCardModal = ({
 										value="debit"
 										checked={cardType === "debit"}
 										onChange={() => setCardType("debit")}
-										className="w-4 h-4"
+										className="size-4"
 									/>
 									<span className="text-sm text-secondary">
 										Débito
@@ -83,7 +83,7 @@ export const AddCardModal = ({
 										value="credit"
 										checked={cardType === "credit"}
 										onChange={() => setCardType("credit")}
-										className="w-4 h-4"
+										className="size-4"
 									/>
 									<span className="text-sm text-secondary">
 										Crédito
@@ -115,18 +115,18 @@ export const AddCardModal = ({
 								</p>
 							)}
 
-							<div className="flex gap-3">
-								<div className="flex-1">
+							<div className="grid gap-5 sm:grid-cols-2">
+								<div className="min-w-0">
 									<label className="block text-xs font-medium text-secondary mb-1.5">
 										Validade
 									</label>
-									<div className="flex gap-1">
+									<div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-1">
 										<input
 											type="text"
 											placeholder="MM"
 											maxLength={2}
 											{...register("expiryMonth")}
-											className="flex-1 h-10 px-3 rounded-lg bg-muted border border-border text-sm placeholder-muted-foreground"
+											className="h-10 min-w-0 rounded-lg border border-border bg-muted px-3 text-sm placeholder-muted-foreground"
 										/>
 										<span className="flex items-center text-secondary">
 											/
@@ -136,7 +136,7 @@ export const AddCardModal = ({
 											placeholder="AA"
 											maxLength={2}
 											{...register("expiryYear")}
-											className="flex-1 h-10 px-3 rounded-lg bg-muted border border-border text-sm placeholder-muted-foreground"
+											className="h-10 min-w-0 rounded-lg border border-border bg-muted px-3 text-sm placeholder-muted-foreground"
 										/>
 									</div>
 									{(errors.expiryMonth ||
@@ -148,7 +148,7 @@ export const AddCardModal = ({
 									)}
 								</div>
 
-								<div className="flex-1">
+								<div className="min-w-0">
 									<InputGroup
 										icon={LockKeyhole}
 										label="CVV"

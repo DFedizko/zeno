@@ -10,14 +10,14 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 	({ icon: Icon, className, ...props }, ref) => (
 		<div
 			className={cn(
-				"flex items-center gap-3 h-12 px-4 bg-card rounded-lg border border-border w-full",
+				"flex h-12 min-w-0 w-full items-center gap-3 rounded-lg border border-border bg-card px-4",
 				className,
 			)}
 		>
 			<Icon className="size-[18px] shrink-0 text-tertiary" />
 			<input
 				ref={ref}
-				className="flex-1 bg-transparent text-body text-primary placeholder:text-tertiary outline-none"
+				className="min-w-0 flex-1 bg-transparent text-body text-primary outline-none placeholder:text-tertiary"
 				{...props}
 			/>
 		</div>
