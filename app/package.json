@@ -6,6 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
+		"openapi:pull": "node scripts/pull-openapi.mjs",
+		"generate:api": "bun run openapi:pull && kubb generate",
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"format": "bunx biome check --write"
@@ -40,6 +42,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.4.2",
 		"@eslint/js": "^9.39.1",
+		"@kubb/cli": "4.24.1",
 		"@kubb/core": "^4.24.1",
 		"@kubb/plugin-client": "^4.24.1",
 		"@kubb/plugin-faker": "^4.24.1",
