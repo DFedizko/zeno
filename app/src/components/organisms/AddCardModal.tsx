@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Form } from "@/components/organisms/Form";
 import { InputGroup } from "@/components/molecules/InputGroup";
-import { CreditCard } from "lucide-react";
+import { CreditCard, LockKeyhole, UserRound } from "lucide-react";
 import { addCardSchema, type AddCardFormData } from "@/lib/schemas/cardSchema";
 
 interface AddCardModalProps {
@@ -53,6 +53,9 @@ export const AddCardModal = ({
 	return (
 		<Dialog open={isOpen} onOpenChange={handleOpenChange}>
 			<DialogContent className="max-w-md p-0">
+				<DialogHeader className="sr-only">
+					<DialogTitle>Adicionar Cartão</DialogTitle>
+				</DialogHeader>
 				<Form className="w-[440px]">
 					<Form.Header
 						title="Adicionar Cartão"
@@ -89,6 +92,7 @@ export const AddCardModal = ({
 							</div>
 
 							<InputGroup
+								icon={UserRound}
 								label="Nome do Titular"
 								placeholder="Seu nome completo"
 								{...register("holderName")}
@@ -100,6 +104,7 @@ export const AddCardModal = ({
 							)}
 
 							<InputGroup
+								icon={CreditCard}
 								label="Número do Cartão"
 								placeholder="0000 0000 0000 0000"
 								{...register("cardNumber")}
@@ -145,9 +150,10 @@ export const AddCardModal = ({
 
 								<div className="flex-1">
 									<InputGroup
+										icon={LockKeyhole}
 										label="CVV"
 										placeholder="000"
-										maxLength="4"
+										maxLength={4}
 										{...register("cvv")}
 									/>
 									{errors.cvv && (

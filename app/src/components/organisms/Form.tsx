@@ -17,7 +17,7 @@ const Frame = ({ children, className }: FrameProps) => (
 );
 
 interface HeaderProps {
-	logo?: string;
+	logo?: ReactNode;
 	title: string;
 	subtitle?: string;
 }

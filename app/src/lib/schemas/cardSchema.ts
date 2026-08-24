@@ -16,7 +16,7 @@ export const addCardSchema = z.object({
 			return year >= currentYear;
 		}, "Cartão expirado"),
 	cvv: z.string().regex(/^\d{3,4}$/, "CVV deve ter 3 ou 4 dígitos"),
-	cardholderType: z.enum(["debit", "credit"]).default("credit"),
+	cardholderType: z.enum(["debit", "credit"]),
 });
 
 export type AddCardFormData = z.infer<typeof addCardSchema>;
