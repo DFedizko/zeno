@@ -1,20 +1,14 @@
 # Zeno
 
-<!-- Add the final dashboard screenshot at design/dashboard.png. -->
-
-<p align="center">
-  <img src="./design/dashboard.png" alt="Zeno dashboard" width="100%" />
-</p>
-
-<p align="center">
-  <a href="#themes">Explore every Zeno theme</a>
-</p>
-
-## Description
-
 Zeno is the effortless way to take control of your financial life. Connect any supported Brazilian bank through Open Finance, securely powered by [Pluggy](https://pluggy.ai), and let Zeno automatically bring your accounts, balances, and transactions together in one clear dashboard.
 
 No more spreadsheets, forgotten purchases, or manually entering every expense. Zeno turns scattered financial data into an organized, up-to-date view of your money, so you spend less time tracking transactions and more time making confident decisions.
+
+<img width="1902" height="991" alt="image" src="https://github.com/user-attachments/assets/bdd09d2c-5232-4d67-9ecf-77dcb2af4db3" />
+
+<div align="center">
+  <img width="1918" height="992" alt="image" src="https://github.com/user-attachments/assets/9317ba78-b7f7-429b-82be-9a4835724a5b" />
+</div>
 
 ## Tech Stack
 
@@ -188,19 +182,6 @@ When you finish developing, stop the PostgreSQL container with:
 cd api
 docker compose down
 ```
-
-## Themes
-
-Zeno supports multiple themes designed to make financial management feel personal without compromising clarity. Theme screenshots will be added here as they become available.
-
-<!-- Add theme screenshots using the following structure:
-
-### Theme name
-
-![Zeno theme name](./design/themes/theme-name.png)
-
-Repeat the block above for every theme.
--->
 
 ## Author and License
 
